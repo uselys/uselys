@@ -28,8 +28,8 @@
         {% endif %}
 
         {% if site.github.is_user_page %}
-        <p class="view"><a href="/html/" target="_blank">HTML编辑器</a></p>
-		<p class="view"><a href="https://c.runoob.com/compile/1/" target="_blank">PHP在线测试</a></p>
+        <p class="view"><a href="/html/">HTML编辑器</a></p>
+		<p class="view"><a href="https://c.runoob.com/compile/1/">PHP在线测试</a></p>
         {% endif %}
 
         {% if site.show_downloads %}
