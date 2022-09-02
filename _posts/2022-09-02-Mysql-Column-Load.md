@@ -5,7 +5,7 @@ date: 2022-09-02 11:09:00
 ---
 
 导出：
-load data local file 'tmp.sql' into table mybb_threads fields terminated by ',' lines terminated by '\n' tid,subject;
+select tid,subject from pre_forum_thread into outfile 'tmp.sql' fields terminated by ',' lines terminated by '\n';
 
 导入：
 LOAD DATA LOCAL INFILE 'tmp.sql' REPLACE INTO TABLE mybb_threads FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (tid , subject);
