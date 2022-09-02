@@ -13,12 +13,15 @@ LOAD DATA LOCAL INFILE 'tmp.sql' REPLACE INTO TABLE mybb_threads FIELDS TERMINAT
 
 discuz 转 mybb:
 
-select pid,fid,tid,author,authorid,subject,dateline,message,useip,usesig,smileyoff,replycredit from pre_forum_post into outfile './tmp.sql' fields terminated by ',' lines terminated by '\n';
+post表：
 
-LOAD DATA LOCAL INFILE './tmp.sql' REPLACE INTO TABLE mybb_posts FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (pid,fid,tid,username,uid,subject,dateline,message,ipaddress,includesig,smilieoff);
+select tid,fid,author,authorid,subject,dateline,dateline,lastpost,lastposter,views,replies,attachment,stickreply from pre_forum_thread into outfile './tmp.sql' fields terminated by ',' lines terminated by '\n';
 
 
+LOAD DATA LOCAL INFILE '/var/lib/mysql/tmp.sql' REPLACE INTO TABLE mybb_threads FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (tid,fid,username,uid,subject,dateline,firstpost,lastpost,lastposter,views,replies,attachmentcount,sticky);
 
+
+thread表：
 
 select tid,subject,fid,author,authorid,dateline,dateline,lastpost,lastposter,views,replies,attachment,stickreply from pre_forum_thread into outfile 'tmp.sql' fields terminated by ',' lines terminated by '\n';
 
