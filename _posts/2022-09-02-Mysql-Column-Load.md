@@ -15,10 +15,10 @@ discuz 转 mybb:
 
 post表：
 
-select pid,fid,author,authorid,subject,dateline,message,useip,smileyoff,replycredit from pre_forum_post into outfile './post.sql' fields terminated by ',' lines terminated by '\n';
+select pid,fid,tid,author,authorid,subject,dateline,message,useip,smileyoff,replycredit from pre_forum_post into outfile './post.sql' fields terminated by ',' lines terminated by '\n';
 
 
-LOAD DATA LOCAL INFILE '/var/lib/mysql/post.sql' REPLACE INTO TABLE mybb_posts FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (pid,fid,username,uid,subject,dateline,message,ipaddress,smilieoff,replyto);
+LOAD DATA LOCAL INFILE '/var/lib/mysql/post.sql' REPLACE INTO TABLE mybb_posts FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (pid,fid,tid,username,uid,subject,dateline,message,ipaddress,smilieoff,replyto);
 
 
 thread表：
